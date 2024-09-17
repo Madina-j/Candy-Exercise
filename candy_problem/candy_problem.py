@@ -2,32 +2,52 @@
 1. 
 In `get_friends_favorite_candy_count()`, return a dictionary of candy names 
 and the amount of times each candy appears in the `friend_favorites` list.
-
+'''
 friend_favorites = [
     ["Sally", ["lollipop", "bubble gum", "laffy taffy" ]],
     ["Bob", ["milky way", "licorice", "lollipop" ]],
     ["Arlene", ["chocolate bar", "milky way", "laffy taffy" ]],
     ["Carlie", ["nerds", "sour patch kids", "laffy taffy" ]]
 ]
-'''
+
+
 def get_friends_favorite_candy_count(favorites):
-    pass
+    candy_count = {}
+    for name in favorites:
+        candy_list = name[1]
+        for candy in candy_list:
+            if candy in candy_count:
+                candy_count[candy] += 1
+            else:
+                candy_count[candy] = 1
+    return candy_count
+
+    
 
 '''
 2. 
 Given the list `friend_favorites`, create a new data structure in the 
 function `create_new_candy_data_structure` that describes the different 
 kinds of candy paired with a list of friends that like that candy. 
-
+'''
 friend_favorites = [
     ["Sally", ["lollipop", "bubble gum", "laffy taffy" ]],
     ["Bob", ["milky way", "licorice", "lollipop" ]],
     ["Arlene", ["chocolate bar", "milky way", "laffy taffy" ]],
     ["Carlie", ["nerds", "sour patch kids", "laffy taffy" ]]
 ]
-'''
+
 def create_new_candy_data_structure(data):
-    pass 
+    candy_favorites = {}
+    for friend in data:
+        for candy in friend[1]:
+            if candy in candy_favorites:
+                candy_favorites[candy].append(friend[0])
+            else:
+                candy_favorites[candy] = []
+                candy_favorites[candy].append(friend[0])
+    return candy_favorites
+# print(create_new_candy_data_structure(friend_favorites))
 
 '''
 3. 
